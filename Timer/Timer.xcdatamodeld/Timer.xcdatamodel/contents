@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BreakTime" representedClassName=".BreakTime" syncable="YES" codeGenerationType="class">
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="collected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeCollector" inverseName="collects" inverseEntity="TimeCollector"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="delayBeforeStart" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="delayBetweenLaps" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lapLength" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="laps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="hasCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Race" inverseName="isOfCategoryType" inverseEntity="Race"/>
+    </entity>
+    <entity name="Race" representedClassName=".Race" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lapLength" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="laps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="isOfCategoryType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="hasCategories" inverseEntity="Category"/>
+        <relationship name="owns" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TimeCollector" inverseName="ownedBy" inverseEntity="TimeCollector"/>
+    </entity>
+    <entity name="TimeCollector" representedClassName=".TimeCollector" syncable="YES" codeGenerationType="class">
+        <relationship name="collects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BreakTime" inverseName="collected" inverseEntity="BreakTime"/>
+        <relationship name="ownedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Race" inverseName="owns" inverseEntity="Race"/>
+    </entity>
+    <elements>
+        <element name="BreakTime" positionX="81.875" positionY="27.3359375" width="128" height="73"/>
+        <element name="Category" positionX="-549.48828125" positionY="-183.09765625" width="128" height="163"/>
+        <element name="Race" positionX="-259.15234375" positionY="21.2421875" width="128" height="28"/>
+        <element name="TimeCollector" positionX="-90.43359375" positionY="22.65625" width="128" height="73"/>
+    </elements>
 </model>
