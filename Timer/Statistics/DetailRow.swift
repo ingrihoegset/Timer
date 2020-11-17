@@ -38,7 +38,7 @@ class DetailRow: UIView {
         label.numberOfLines = 1
         label.textColor = UIColor(named: Constants.lightText)
         label.textAlignment = .center
-        label.font = Constants.mainFont
+        label.font = Constants.mainFontLargeSB
         return label
     }()
     
@@ -84,12 +84,12 @@ class DetailRow: UIView {
         titleLabel.leadingAnchor.constraint(equalTo: typeIcon.trailingAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 5/16).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 9/16).isActive = true
         
         detailLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
         detailLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         detailLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        detailLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 5/16).isActive = true
+        detailLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 4/16).isActive = true
         
         unitLabel.leadingAnchor.constraint(equalTo: detailLabel.trailingAnchor).isActive = true
         unitLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true

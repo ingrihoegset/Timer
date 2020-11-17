@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Charts
 
 class RaceDetailsViewController: UIViewController {
     
-    var unit = "m"
-    var detail = "3:50"
     var icon = "Favourite"
-    var name = "Time"
-    var date = "3, July"
-    var lapTimesData = ["Hei","på","deeeg","fgh","ghj","gh"]
     let cellReuseIdentifier = "cell"
+    
+    var type = ""
+    var time = ""
+    var distance = 0
+    var averageSpeed = ""
+    var date = "3, July"
+    var lapTimes = [String]()
     
     let summaryView: UIView = {
         let view = UIView()
@@ -38,9 +41,18 @@ class RaceDetailsViewController: UIViewController {
         label.numberOfLines = 1
         label.textColor = UIColor(named: Constants.lightText)
         label.textAlignment = .left
-        label.font = Constants.mainFont
+        label.font = Constants.mainFontLargeSB
         label.text = "Run Stats"
+
+        
         return label
+    }()
+    
+    let lineView: UIView = {
+        let lineView = UIView()
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        lineView.backgroundColor = UIColor(named: Constants.contrast)
+        return lineView
     }()
     
     let summaryDateLabel: UILabel = {
@@ -49,8 +61,8 @@ class RaceDetailsViewController: UIViewController {
         label.backgroundColor = .clear
         label.numberOfLines = 1
         label.textColor = UIColor(named: Constants.lightText)
-        label.textAlignment = .center
-        label.font = Constants.mainFont
+        label.textAlignment = .right
+        label.font = Constants.mainFontLargeSB
         return label
     }()
     
@@ -101,6 +113,7 @@ class RaceDetailsViewController: UIViewController {
         button.clipsToBounds = true
         button.layer.maskedCorners = [.layerMinXMinYCorner]
         button.addTarget(self, action: #selector(showLaps), for: .touchUpInside)
+        button.titleLabel?.font = Constants.mainFontLargeSB
         return button
     }()
     
@@ -114,6 +127,7 @@ class RaceDetailsViewController: UIViewController {
         button.clipsToBounds = true
         button.layer.maskedCorners = [.layerMaxXMinYCorner]
         button.addTarget(self, action: #selector(showGraph), for: .touchUpInside)
+        button.titleLabel?.font = Constants.mainFontLargeSB
         return button
     }()
     
@@ -126,6 +140,78 @@ class RaceDetailsViewController: UIViewController {
         tableView.allowsSelection = false
         return tableView
     }()
+    
+    lazy var lapsChartView: LineChartView = {
+        let chartView = LineChartView()
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "HH:mm:ss"
+
+        let date: Date? = dateFormatterGet.date(from: "2016-02-29 12:24:26")
+        print("fghjkl" + dateFormatterPrint.string(from: date!))
+        
+        let leftAxisFormatter = NumberFormatter()
+        leftAxisFormatter.minimumFractionDigits = 0
+        leftAxisFormatter.maximumFractionDigits = 1
+        leftAxisFormatter.negativeSuffix = " $"
+        leftAxisFormatter.positiveSuffix = " $"
+        
+        let leftAxis = chartView.leftAxis
+        leftAxis.labelFont = .systemFont(ofSize: 10)
+        leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+        leftAxis.labelPosition = .outsideChart
+        leftAxis.spaceTop = 0.15
+        leftAxis.labelCount = 5
+        leftAxis.axisLineColor = .clear
+        leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
+        leftAxis.drawGridLinesEnabled = false
+        leftAxis.labelTextColor = UIColor(named: Constants.lightText) ?? .white
+        leftAxis.labelFont = Constants.mainFont!
+        
+        let rightAxis = chartView.rightAxis
+        rightAxis.enabled = true
+        rightAxis.labelCount = leftAxis.labelCount
+        rightAxis.valueFormatter = leftAxis.valueFormatter
+        rightAxis.spaceTop = 0.15
+        rightAxis.axisLineColor = .clear
+        rightAxis.axisMinimum = 0
+        rightAxis.drawGridLinesEnabled = false
+        rightAxis.labelTextColor = UIColor(named: Constants.lightText) ?? .white
+        rightAxis.labelFont = Constants.mainFont!
+        
+        let l = chartView.legend
+        l.horizontalAlignment = .left
+        l.verticalAlignment = .top
+        l.orientation = .horizontal
+        l.drawInside = false
+        l.form = .circle
+        l.formSize = 9
+        l.font = Constants.mainFont!
+        l.textColor = UIColor(named: Constants.lightText) ?? .white
+        l.xOffset = -Constants.widthOfDisplay * 0.08
+        
+        chartView.animate(yAxisDuration: 2.0)
+        chartView.pinchZoomEnabled = false
+        chartView.drawBordersEnabled = false
+        chartView.doubleTapToZoomEnabled = false
+        chartView.drawGridBackgroundEnabled = false
+        
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        chartView.backgroundColor = .clear
+        chartView.xAxis.enabled = true
+        chartView.xAxis.axisLineColor = .clear
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.gridColor = .clear
+        chartView.xAxis.axisMinimum = 0.8
+        chartView.xAxis.granularity = 1
+        chartView.xAxis.labelFont = Constants.mainFont!
+        chartView.xAxis.labelTextColor = UIColor(named: Constants.lightText) ?? .white
+
+        return chartView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +219,7 @@ class RaceDetailsViewController: UIViewController {
         view.addSubview(summaryView)
         
         summaryView.addSubview(summarytitleLabel)
+        summarytitleLabel.addSubview(lineView)
         summaryView.addSubview(summaryDateLabel)
         
         summaryView.addSubview(detailRowType)
@@ -140,16 +227,19 @@ class RaceDetailsViewController: UIViewController {
         summaryView.addSubview(detailRowDistance)
         summaryView.addSubview(detailRowSpeed)
         
-        detailRowType.setProperties(title: name, unit: "", icon: icon, detail: "")
-        detailRowTime.setProperties(title: "Time", unit: "s", icon: icon, detail: detail)
-        detailRowDistance.setProperties(title: "Total Distance", unit: "m", icon: icon, detail: detail)
-        detailRowSpeed.setProperties(title: "Average Speed", unit: "km/h", icon: icon, detail: detail)
+        detailRowType.setProperties(title: "  " + type, unit: "", icon: icon, detail: "")
+        detailRowTime.setProperties(title: "  Time", unit: "s", icon: icon, detail: time)
+        detailRowDistance.setProperties(title: "  Total Distance", unit: "m", icon: icon, detail: String(distance))
+        detailRowSpeed.setProperties(title: "  Average Speed", unit: "km/h", icon: icon, detail: averageSpeed)
         summaryDateLabel.text = date
 
         view.addSubview(lapsView)
         lapsView.addSubview(tabLapslabel)
         lapsView.addSubview(tabGraphLabel)
+        lapsView.addSubview(lapsChartView)
         lapsView.addSubview(lapTimeTableView)
+        lapsChartView.isHidden = true
+        setDataForWaveChart()
         
         lapTimeTableView.dataSource = self
         lapTimeTableView.delegate = self
@@ -169,6 +259,11 @@ class RaceDetailsViewController: UIViewController {
         summarytitleLabel.heightAnchor.constraint(equalTo: summaryView.heightAnchor, multiplier: 1/6).isActive = true
         summarytitleLabel.leadingAnchor.constraint(equalTo: summaryView.leadingAnchor, constant: Constants.sideMargin).isActive = true
         summarytitleLabel.trailingAnchor.constraint(equalTo: summaryView.centerXAnchor).isActive = true
+        
+        lineView.bottomAnchor.constraint(equalTo: summarytitleLabel.bottomAnchor, constant: -2).isActive = true
+        lineView.leadingAnchor.constraint(equalTo: summarytitleLabel.leadingAnchor).isActive = true
+        lineView.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        lineView.widthAnchor.constraint(equalTo: summarytitleLabel.widthAnchor).isActive = true
         
         summaryDateLabel.topAnchor.constraint(equalTo: summaryView.topAnchor, constant: Constants.sideMargin).isActive = true
         summaryDateLabel.heightAnchor.constraint(equalTo: summaryView.heightAnchor, multiplier: 1/6).isActive = true
@@ -214,18 +309,57 @@ class RaceDetailsViewController: UIViewController {
         lapTimeTableView.bottomAnchor.constraint(equalTo: lapsView.bottomAnchor, constant: -Constants.sideMargin / 2).isActive = true
         lapTimeTableView.leadingAnchor.constraint(equalTo: lapsView.leadingAnchor).isActive = true
         lapTimeTableView.trailingAnchor.constraint(equalTo: lapsView.trailingAnchor).isActive = true
+        
+        lapsChartView.topAnchor.constraint(equalTo: tabLapslabel.bottomAnchor, constant: Constants.sideMargin / 2).isActive = true
+        lapsChartView.bottomAnchor.constraint(equalTo: lapsView.bottomAnchor, constant: -Constants.sideMargin / 2).isActive = true
+        lapsChartView.leadingAnchor.constraint(equalTo: lapsView.leadingAnchor, constant: Constants.sideMargin).isActive = true
+        lapsChartView.trailingAnchor.constraint(equalTo: lapsView.trailingAnchor, constant: -Constants.sideMargin).isActive = true
     }
     
     @objc private func showLaps() {
         lapTimeTableView.isHidden = false
+        lapsChartView.isHidden = true
         tabGraphLabel.backgroundColor = UIColor(named: Constants.accentLight)
         tabLapslabel.backgroundColor = UIColor(named: Constants.accentDark)
     }
     
     @objc private func showGraph() {
         lapTimeTableView.isHidden = true
+        lapsChartView.isHidden = false
         tabGraphLabel.backgroundColor = UIColor(named: Constants.accentDark)
         tabLapslabel.backgroundColor = UIColor(named: Constants.accentLight)
+    }
+    
+    @objc func setDataForWaveChart() {
+        var entries = [ChartDataEntry]()
+        for i in 0...lapTimes.count - 1 {
+            let entry = ChartDataEntry(x: Double(i+1), y: Double(lapTimes[i]) ?? 0.0)
+            entries.append(entry)
+        }
+        let set = LineChartDataSet(entries: entries)
+        set.colors = [UIColor.white]
+        set.mode = .cubicBezier
+        set.drawCirclesEnabled = true
+        set.circleColors = [.white]
+        set.lineWidth = 3
+        set.setColor(.white)
+        set.fill = Fill(color: UIColor.clear)
+        set.fillAlpha = 1
+        set.drawFilledEnabled = true
+        set.highlightEnabled = false
+        set.label = "Lap times"
+        set.valueFont = Constants.mainFont!
+        let data =  LineChartData(dataSet: set)
+        data.setDrawValues(false)
+    
+        lapsChartView.data = data
+        if entries.count >= 1 {
+            lapsChartView.xAxis.axisMaximum = entries.last!.x + 0.2
+        }
+        else {
+            lapsChartView.xAxis.axisMaximum = lapsChartView.xAxis.axisMinimum
+        }
+
     }
 
     /*
@@ -252,12 +386,12 @@ extension RaceDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.lapTimesData.count
+        return self.lapTimes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! ResultsTableViewCell
-        cell.timeLabel.text = self.lapTimesData[indexPath.row]
+        cell.timeLabel.text = self.lapTimes[indexPath.row]
         cell.numberLabel.text = String(indexPath.row + 1)
         cell.backgroundColor = UIColor(named: Constants.accentDark)
         

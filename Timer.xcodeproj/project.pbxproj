@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AE6D2998F9A7CEC352F75A4 /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A0BCECB90C0F6626BA5EA0 /* Pods_Timer.framework */; };
 		BF1BBA25251E1AEB0028859D /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBA24251E1AEB0028859D /* ResultsViewModel.swift */; };
 		BF1BBA2B251E33950028859D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBA2A251E33950028859D /* StatisticsViewController.swift */; };
 		BF1BBA2D251E33B20028859D /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBA2C251E33B20028859D /* StatisticsViewModel.swift */; };
@@ -40,15 +41,17 @@
 		BFB357BD24E9AE3100E117DD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB357BC24E9AE3100E117DD /* ViewModel.swift */; };
 		BFB357BF24E9AE3A00E117DD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB357BE24E9AE3A00E117DD /* Model.swift */; };
 		BFB357C124E9AE6600E117DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB357C024E9AE6600E117DD /* Constants.swift */; };
-		BFCDE628251FFC5A0032D4C5 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBA3F251FE53C0028859D /* NotoSans-Regular.ttf */; };
 		BFCDE62E252141380032D4C5 /* SetSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCDE62D252141380032D4C5 /* SetSpeedViewController.swift */; };
 		BFCDE6312521F70B0032D4C5 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCDE6302521F70B0032D4C5 /* ResultsTableViewCell.swift */; };
+		BFD59B1625633B2300BC778E /* BarlowSemiCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD59B1525633B2300BC778E /* BarlowSemiCondensed-Light.ttf */; };
 		BFE599DD251A0FF900ED5147 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE599DC251A0FF900ED5147 /* StartViewController.swift */; };
 		BFE599E2251A11CB00ED5147 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE599E1251A11CB00ED5147 /* StartViewModel.swift */; };
 		BFE599E6251A1F6400ED5147 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE599E5251A1F6400ED5147 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F07087E6523E0088281EC29 /* Pods-Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.release.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.release.xcconfig"; sourceTree = "<group>"; };
+		6F7D290546E1D6723808F440 /* Pods-Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.debug.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1BBA24251E1AEB0028859D /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		BF1BBA2A251E33950028859D /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		BF1BBA2C251E33B20028859D /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
@@ -56,11 +59,7 @@
 		BF1BBA2F251FBFD80028859D /* longBeepDeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = longBeepDeep.wav; sourceTree = "<group>"; };
 		BF1BBA30251FBFD90028859D /* shortBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shortBeep.wav; sourceTree = "<group>"; };
 		BF1BBA31251FBFD90028859D /* longBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = longBeep.wav; sourceTree = "<group>"; };
-		BF1BBA3C251FE52D0028859D /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		BF1BBA3E251FE5310028859D /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
-		BF1BBA3F251FE53C0028859D /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		BF1BBA41251FE5600028859D /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		BF1BBA42251FE57C0028859D /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		BF27EB1F2522485E00F2811C /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		BF27EB21252262B500F2811C /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		BF27EB232527D5B600F2811C /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
@@ -91,9 +90,11 @@
 		BFB357C024E9AE6600E117DD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFCDE62D252141380032D4C5 /* SetSpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSpeedViewController.swift; sourceTree = "<group>"; };
 		BFCDE6302521F70B0032D4C5 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		BFD59B1525633B2300BC778E /* BarlowSemiCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Light.ttf"; sourceTree = "<group>"; };
 		BFE599DC251A0FF900ED5147 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		BFE599E1251A11CB00ED5147 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		BFE599E5251A1F6400ED5147 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		F2A0BCECB90C0F6626BA5EA0 /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +102,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE6D2998F9A7CEC352F75A4 /* Pods_Timer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F81B0011170540A7EB365A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2A0BCECB90C0F6626BA5EA0 /* Pods_Timer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8347915231E5F34D496892EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F7D290546E1D6723808F440 /* Pods-Timer.debug.xcconfig */,
+				4F07087E6523E0088281EC29 /* Pods-Timer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF1BBA36251FBFEF0028859D /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,10 +143,7 @@
 				BF1BBA41251FE5600028859D /* LICENSE.txt */,
 				BF34B0AC255EB1D20046489C /* BarlowSemiCondensed-SemiBold.ttf */,
 				BF34B0A9255EB0E70046489C /* BarlowSemiCondensed-Medium.ttf */,
-				BF1BBA3E251FE5310028859D /* NotoSans-Italic.ttf */,
-				BF1BBA3C251FE52D0028859D /* NotoSans-BoldItalic.ttf */,
-				BF1BBA42251FE57C0028859D /* NotoSans-Bold.ttf */,
-				BF1BBA3F251FE53C0028859D /* NotoSans-Regular.ttf */,
+				BFD59B1525633B2300BC778E /* BarlowSemiCondensed-Light.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -171,6 +187,8 @@
 				BFB357A224E9ADC900E117DD /* Timer */,
 				BF344AC92549BACC00A8BB2D /* Assets.xcassets */,
 				BFB357A124E9ADC900E117DD /* Products */,
+				8347915231E5F34D496892EC /* Pods */,
+				0F81B0011170540A7EB365A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFB357B724E9ADCD00E117DD /* Build configuration list for PBXNativeTarget "Timer" */;
 			buildPhases = (
+				35E2F20A7367EAB1CCCD5666 /* [CP] Check Pods Manifest.lock */,
 				BFB3579C24E9ADC900E117DD /* Sources */,
 				BFB3579D24E9ADC900E117DD /* Frameworks */,
 				BFB3579E24E9ADC900E117DD /* Resources */,
+				859EF088104EDB43FF631B4F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,8 +325,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF34B0AD255EB1D20046489C /* BarlowSemiCondensed-SemiBold.ttf in Resources */,
-				BFCDE628251FFC5A0032D4C5 /* NotoSans-Regular.ttf in Resources */,
 				BF34B0AA255EB0E70046489C /* BarlowSemiCondensed-Medium.ttf in Resources */,
+				BFD59B1625633B2300BC778E /* BarlowSemiCondensed-Light.ttf in Resources */,
 				BF1BBA35251FBFD90028859D /* longBeep.wav in Resources */,
 				BFB357B324E9ADCD00E117DD /* LaunchScreen.storyboard in Resources */,
 				BF1BBA34251FBFD90028859D /* shortBeep.wav in Resources */,
@@ -318,6 +338,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35E2F20A7367EAB1CCCD5666 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Timer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		859EF088104EDB43FF631B4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Timer/Pods-Timer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Timer/Pods-Timer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Timer/Pods-Timer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BFB3579C24E9ADC900E117DD /* Sources */ = {
@@ -494,6 +556,7 @@
 		};
 		BFB357B824E9ADCD00E117DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F7D290546E1D6723808F440 /* Pods-Timer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +575,7 @@
 		};
 		BFB357B924E9ADCD00E117DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F07087E6523E0088281EC29 /* Pods-Timer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
