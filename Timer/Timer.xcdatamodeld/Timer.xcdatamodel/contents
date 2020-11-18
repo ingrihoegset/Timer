@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BreakTime" representedClassName=".BreakTime" syncable="YES" codeGenerationType="class">
         <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="collected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeCollector" inverseName="collects" inverseEntity="TimeCollector"/>
@@ -15,7 +15,7 @@
         <relationship name="hasCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Race" inverseName="isOfCategoryType" inverseEntity="Race"/>
     </entity>
     <entity name="Race" representedClassName=".Race" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lapLength" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="laps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
@@ -29,7 +29,7 @@
     <elements>
         <element name="BreakTime" positionX="81.875" positionY="27.3359375" width="128" height="73"/>
         <element name="Category" positionX="-549.48828125" positionY="-183.09765625" width="128" height="163"/>
-        <element name="Race" positionX="-259.15234375" positionY="21.2421875" width="128" height="28"/>
+        <element name="Race" positionX="-259.15234375" positionY="21.2421875" width="128" height="133"/>
         <element name="TimeCollector" positionX="-90.43359375" positionY="22.65625" width="128" height="73"/>
     </elements>
 </model>

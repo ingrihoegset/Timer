@@ -16,4 +16,5 @@ struct Result {
     let date: String?
     let averageSpeed: String?
     let race: Race
+    let laps: Int?
 }

@@ -16,10 +16,11 @@ class RaceDetailsViewController: UIViewController {
     
     var type = ""
     var time = ""
-    var distance = 0
+    var lapLength = 0
     var averageSpeed = ""
     var date = "3, July"
-    var lapTimes = [String]()
+    var lapTimes: [Double] = [0]
+    var laps = 0
     
     let summaryView: UIView = {
         let view = UIView()
@@ -44,7 +45,6 @@ class RaceDetailsViewController: UIViewController {
         label.font = Constants.mainFontLargeSB
         label.text = "Run Stats"
 
-        
         return label
     }()
     
@@ -144,20 +144,11 @@ class RaceDetailsViewController: UIViewController {
     lazy var lapsChartView: LineChartView = {
         let chartView = LineChartView()
         
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "HH:mm:ss"
-
-        let date: Date? = dateFormatterGet.date(from: "2016-02-29 12:24:26")
-        print("fghjkl" + dateFormatterPrint.string(from: date!))
-        
         let leftAxisFormatter = NumberFormatter()
-        leftAxisFormatter.minimumFractionDigits = 0
-        leftAxisFormatter.maximumFractionDigits = 1
-        leftAxisFormatter.negativeSuffix = " $"
-        leftAxisFormatter.positiveSuffix = " $"
+        leftAxisFormatter.decimalSeparator = "."
+        leftAxisFormatter.minimumFractionDigits = 2
+        leftAxisFormatter.maximumFractionDigits = 2
+        
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelFont = .systemFont(ofSize: 10)
@@ -218,6 +209,8 @@ class RaceDetailsViewController: UIViewController {
         view.backgroundColor = UIColor(named: Constants.main)
         view.addSubview(summaryView)
         
+        print("ltimes" + String(lapTimes[0]))
+        
         summaryView.addSubview(summarytitleLabel)
         summarytitleLabel.addSubview(lineView)
         summaryView.addSubview(summaryDateLabel)
@@ -229,7 +222,7 @@ class RaceDetailsViewController: UIViewController {
         
         detailRowType.setProperties(title: "  " + type, unit: "", icon: icon, detail: "")
         detailRowTime.setProperties(title: "  Time", unit: "s", icon: icon, detail: time)
-        detailRowDistance.setProperties(title: "  Total Distance", unit: "m", icon: icon, detail: String(distance))
+        detailRowDistance.setProperties(title: "  Total Distance", unit: "m", icon: icon, detail: String(lapLength * laps))
         detailRowSpeed.setProperties(title: "  Average Speed", unit: "km/h", icon: icon, detail: averageSpeed)
         summaryDateLabel.text = date
 
@@ -246,6 +239,7 @@ class RaceDetailsViewController: UIViewController {
         lapTimeTableView.register(ResultsTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         setConstraints()
+        
     }
     
     func setConstraints() {
@@ -333,7 +327,8 @@ class RaceDetailsViewController: UIViewController {
     @objc func setDataForWaveChart() {
         var entries = [ChartDataEntry]()
         for i in 0...lapTimes.count - 1 {
-            let entry = ChartDataEntry(x: Double(i+1), y: Double(lapTimes[i]) ?? 0.0)
+            print(lapTimes[i])
+            let entry = ChartDataEntry(x: Double(i+1), y: Double(lapTimes[i]) )
             entries.append(entry)
         }
         let set = LineChartDataSet(entries: entries)
@@ -359,19 +354,25 @@ class RaceDetailsViewController: UIViewController {
         else {
             lapsChartView.xAxis.axisMaximum = lapsChartView.xAxis.axisMinimum
         }
-
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func secondsToHoursMinutesSeconds (seconds : Double) -> (Int, Int, Int, Int) {
+        let int = Int(seconds)
+        let rest = seconds - Double(int)
+        print(seconds, int, rest)
+        return (int / 3600, (int % 3600) / 60, (int % 3600) % 60, Int(rest * 100))
     }
-    */
+    
+    func lapSpeed(lapLength: Int, laps: Int, lapTime: Double) -> Double {
+        
+        let km = (Double(lapLength) * Double(laps)) / Double(1000)
+        print("km" + String(km))
+        let hours = lapTime / 3600
+        print("h" + String(hours))
+        let speed = km / hours
 
+        return speed
+    }
 }
 
 extension RaceDetailsViewController: UITableViewDelegate {
@@ -390,9 +391,29 @@ extension RaceDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! ResultsTableViewCell
-        cell.timeLabel.text = self.lapTimes[indexPath.row]
-        cell.numberLabel.text = String(indexPath.row + 1)
+        
+        cell.numberLabel.text =   String(indexPath.row + 1)
+        
+        let time = String(format: "%.2f", self.lapTimes[indexPath.row])
+        let attributedText = NSMutableAttributedString(string: time, attributes: [NSAttributedString.Key.font: Constants.mainFont])
+        let timeUnit = NSMutableAttributedString(string: " s", attributes: [NSAttributedString.Key.font: Constants.mainFontSmall])
+        attributedText.append(timeUnit)
+        cell.timeLabel.attributedText = attributedText
+        
+        let speed = lapSpeed(lapLength: self.lapLength, laps: self.laps, lapTime: self.lapTimes[indexPath.row])
+        let speedtext = String(format: "%.2f", speed)
+        let attributedSpeedText = NSMutableAttributedString(string: speedtext, attributes: [NSAttributedString.Key.font: Constants.mainFont])
+        let speedUnit = NSMutableAttributedString(string: " km/h", attributes: [NSAttributedString.Key.font: Constants.mainFontSmall])
+        attributedSpeedText.append(speedUnit)
+        cell.speedLabel.attributedText = attributedSpeedText
+        
+        let attributedDistanceText = NSMutableAttributedString(string: String(self.lapLength), attributes: [NSAttributedString.Key.font: Constants.mainFont])
+        let distanceUnit = NSMutableAttributedString(string: " m", attributes: [NSAttributedString.Key.font: Constants.mainFontSmall])
+        attributedDistanceText.append(distanceUnit)
+        cell.distanceLabel.attributedText = attributedDistanceText
+        
         cell.backgroundColor = UIColor(named: Constants.accentDark)
         
         return cell
