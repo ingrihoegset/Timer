@@ -19,7 +19,7 @@ class RaceDetailsViewController: UIViewController {
     var lapLength = 0
     var averageSpeed = ""
     var date = "3, July"
-    var lapTimes: [Double] = [0]
+    var lapTimes = [Double]()
     var laps = 0
     
     let summaryView: UIView = {
@@ -209,8 +209,6 @@ class RaceDetailsViewController: UIViewController {
         view.backgroundColor = UIColor(named: Constants.main)
         view.addSubview(summaryView)
         
-        print("ltimes" + String(lapTimes[0]))
-        
         summaryView.addSubview(summarytitleLabel)
         summarytitleLabel.addSubview(lineView)
         summaryView.addSubview(summaryDateLabel)
@@ -327,7 +325,6 @@ class RaceDetailsViewController: UIViewController {
     @objc func setDataForWaveChart() {
         var entries = [ChartDataEntry]()
         for i in 0...lapTimes.count - 1 {
-            print(lapTimes[i])
             let entry = ChartDataEntry(x: Double(i+1), y: Double(lapTimes[i]) )
             entries.append(entry)
         }
@@ -359,16 +356,13 @@ class RaceDetailsViewController: UIViewController {
     func secondsToHoursMinutesSeconds (seconds : Double) -> (Int, Int, Int, Int) {
         let int = Int(seconds)
         let rest = seconds - Double(int)
-        print(seconds, int, rest)
         return (int / 3600, (int % 3600) / 60, (int % 3600) % 60, Int(rest * 100))
     }
     
     func lapSpeed(lapLength: Int, laps: Int, lapTime: Double) -> Double {
         
-        let km = (Double(lapLength) * Double(laps)) / Double(1000)
-        print("km" + String(km))
+        let km = Double(lapLength) / Double(1000)
         let hours = lapTime / 3600
-        print("h" + String(hours))
         let speed = km / hours
 
         return speed

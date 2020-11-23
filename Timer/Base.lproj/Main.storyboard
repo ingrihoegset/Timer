@@ -138,31 +138,11 @@
                     <navigationItem key="navigationItem" id="J1v-h7-ksy"/>
                     <connections>
                         <segue destination="QDk-rp-1lF" kind="show" identifier="goToSetSpeed" id="Uzg-IV-xM7"/>
-                        <segue destination="Lx9-Hv-0yD" kind="show" identifier="goToSetLaps" id="zNc-rt-WD2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4u-Ta-q0B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-996" y="90"/>
-        </scene>
-        <!--Set Laps View Controller-->
-        <scene sceneID="4mt-Gq-u53">
-            <objects>
-                <viewController id="Lx9-Hv-0yD" customClass="SetLapsViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CwL-GJ-fuX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="vuj-Nh-Hw7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Efa-9E-UYF"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToRace" id="uCY-2A-S8D"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yJ7-mj-oHM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-155" y="427"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kHn-xt-kP0">
@@ -232,12 +212,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oU-1V-jiX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="-292"/>
+            <point key="canvasLocation" x="-141" y="90"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="gpt-dD-jgi"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="Statistics" width="21" height="20.5"/>
@@ -247,7 +224,7 @@
             <color red="0.73900002241134644" green="0.20000000298023224" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="contrast">
-            <color red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.57800000905990601" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

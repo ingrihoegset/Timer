@@ -12,10 +12,18 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor(named: Constants.white)
+        navigationBarAppearace.barTintColor = UIColor(named: Constants.main)
+        navigationBarAppearace.isTranslucent = false
+        navigationBarAppearace.shadowImage = UIImage()
+        
+        let tabBarApperance = UITabBar.appearance()
+        tabBarApperance.barTintColor = UIColor(named: Constants.accentDark)
+        tabBarApperance.isTranslucent = false
+        preloadData()
         return true
     }
 
@@ -77,6 +85,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    private func preloadData() {
+        
+        let preloadedDataKey = "didPreloadData"
+        
+        let userDefaults = UserDefaults.standard
+        
+        //Preload if never loaded before
+        if userDefaults.bool(forKey: preloadedDataKey) == false {
+            
+            persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+            
+            let backgroundContext = persistentContainer.newBackgroundContext()
+            
+            backgroundContext.perform {
+                
+                do {
+                    let reactionRace = Category(context: backgroundContext)
+                    let lapsRace = Category(context: backgroundContext)
+                    let speedRace = Category(context: backgroundContext)
+                    
+                    speedRace.name = Constants.speedRun
+                    speedRace.type = "Speed"
+                    speedRace.isFavorite = false
+                    speedRace.laps = 1
+                    speedRace.lapLength = 60
+                    speedRace.delayBeforeStart = 10
+                    speedRace.reactionTime = 10
 
+                    lapsRace.name = Constants.Intervals
+                    lapsRace.type = "Laps"
+                    lapsRace.isFavorite = false
+                    lapsRace.laps = 2
+                    lapsRace.lapLength = 60
+                    lapsRace.delayBeforeStart = 10
+                    lapsRace.reactionTime = 10
+                    
+                    reactionRace.name = Constants.reactionRun
+                    reactionRace.type = "Reaction"
+                    reactionRace.isFavorite = false
+                    reactionRace.laps = 1
+                    reactionRace.lapLength = 30
+                    reactionRace.delayBeforeStart = 10
+                    reactionRace.reactionTime = 10
+                    
+                    try backgroundContext.save()
+                        userDefaults.set(true, forKey: preloadedDataKey)
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8AE6D2998F9A7CEC352F75A4 /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A0BCECB90C0F6626BA5EA0 /* Pods_Timer.framework */; };
+		BF10F908256C51A600212FD5 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10F907256C51A600212FD5 /* FavoritesModel.swift */; };
 		BF1BBA25251E1AEB0028859D /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBA24251E1AEB0028859D /* ResultsViewModel.swift */; };
 		BF1BBA2B251E33950028859D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBA2A251E33950028859D /* StatisticsViewController.swift */; };
 		BF1BBA2D251E33B20028859D /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBA2C251E33B20028859D /* StatisticsViewModel.swift */; };
@@ -24,14 +25,13 @@
 		BF34B0AA255EB0E70046489C /* BarlowSemiCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF34B0A9255EB0E70046489C /* BarlowSemiCondensed-Medium.ttf */; };
 		BF34B0AD255EB1D20046489C /* BarlowSemiCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF34B0AC255EB1D20046489C /* BarlowSemiCondensed-SemiBold.ttf */; };
 		BF34B0B1255EB30A0046489C /* MyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B0B0255EB30A0046489C /* MyPickerView.swift */; };
-		BF34B0BB256074CC0046489C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B0BA256074CC0046489C /* Result.swift */; };
 		BF34B0BE2562A6070046489C /* RaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B0BD2562A6070046489C /* RaceDetailsViewController.swift */; };
 		BF34B0C22562C3200046489C /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B0C12562C3200046489C /* DetailRow.swift */; };
 		BF37E4F7253A0A5D00AF4F69 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF37E4F6253A0A5D00AF4F69 /* CollectionViewCell.swift */; };
-		BF40E50F25486B2F0059B5C5 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40E50E25486B2F0059B5C5 /* FavoritesModel.swift */; };
 		BF40E51125487DA30059B5C5 /* SpeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40E51025487DA30059B5C5 /* SpeedViewModel.swift */; };
+		BF41D61A256588040051639E /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41D619256588040051639E /* CustomPickerView.swift */; };
+		BF41D620256815DE0051639E /* SortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41D61F256815DE0051639E /* SortViewModel.swift */; };
 		BFAA1FB82518E12300B68378 /* BreakObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAA1FB72518E12300B68378 /* BreakObserver.swift */; };
-		BFAA5420251A359F00BC83DE /* SetLapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAA541F251A359F00BC83DE /* SetLapsViewController.swift */; };
 		BFB357A424E9ADC900E117DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB357A324E9ADC900E117DD /* AppDelegate.swift */; };
 		BFB357A624E9ADC900E117DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB357A524E9ADC900E117DD /* SceneDelegate.swift */; };
 		BFB357A824E9ADC900E117DD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB357A724E9ADC900E117DD /* CameraViewController.swift */; };
@@ -52,6 +52,7 @@
 /* Begin PBXFileReference section */
 		4F07087E6523E0088281EC29 /* Pods-Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.release.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.release.xcconfig"; sourceTree = "<group>"; };
 		6F7D290546E1D6723808F440 /* Pods-Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.debug.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.debug.xcconfig"; sourceTree = "<group>"; };
+		BF10F907256C51A600212FD5 /* FavoritesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
 		BF1BBA24251E1AEB0028859D /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		BF1BBA2A251E33950028859D /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		BF1BBA2C251E33B20028859D /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
@@ -69,14 +70,13 @@
 		BF34B0A9255EB0E70046489C /* BarlowSemiCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Medium.ttf"; sourceTree = "<group>"; };
 		BF34B0AC255EB1D20046489C /* BarlowSemiCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
 		BF34B0B0255EB30A0046489C /* MyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickerView.swift; sourceTree = "<group>"; };
-		BF34B0BA256074CC0046489C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		BF34B0BD2562A6070046489C /* RaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewController.swift; sourceTree = "<group>"; };
 		BF34B0C12562C3200046489C /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
 		BF37E4F6253A0A5D00AF4F69 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		BF40E50E25486B2F0059B5C5 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
 		BF40E51025487DA30059B5C5 /* SpeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewModel.swift; sourceTree = "<group>"; };
+		BF41D619256588040051639E /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		BF41D61F256815DE0051639E /* SortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewModel.swift; sourceTree = "<group>"; };
 		BFAA1FB72518E12300B68378 /* BreakObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakObserver.swift; sourceTree = "<group>"; };
-		BFAA541F251A359F00BC83DE /* SetLapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLapsViewController.swift; sourceTree = "<group>"; };
 		BFB357A024E9ADC900E117DD /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB357A324E9ADC900E117DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB357A524E9ADC900E117DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,8 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				BF1BBA2A251E33950028859D /* StatisticsViewController.swift */,
+				BF1BBA2C251E33B20028859D /* StatisticsViewModel.swift */,
 				BF27EB1F2522485E00F2811C /* StatisticsTableViewCell.swift */,
 				BF27EB21252262B500F2811C /* SortViewController.swift */,
+				BF41D61F256815DE0051639E /* SortViewModel.swift */,
 				BF27EB252529226000F2811C /* DateViewController.swift */,
 				BF34B0BD2562A6070046489C /* RaceDetailsViewController.swift */,
 				BF34B0C12562C3200046489C /* DetailRow.swift */,
@@ -164,12 +166,11 @@
 		BFAA1FBB25190C8200B68378 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF40E50E25486B2F0059B5C5 /* FavoritesModel.swift */,
 				BFB357BE24E9AE3A00E117DD /* Model.swift */,
+				BF10F907256C51A600212FD5 /* FavoritesModel.swift */,
 				BFAA1FBC25190E5C00B68378 /* Monitor */,
 				BFAA1FB72518E12300B68378 /* BreakObserver.swift */,
 				BFB357BA24E9AE2100E117DD /* CameraCapture.swift */,
-				BF34B0BA256074CC0046489C /* Result.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +185,13 @@
 		BFB3579724E9ADC900E117DD = {
 			isa = PBXGroup;
 			children = (
+				BFF9F108256C584700802810 /* Classes */,
+				BFF9F100256C570800802810 /* StartView */,
+				BFF9F102256C572A00802810 /* SetRaceView */,
+				BFF9F104256C57A000802810 /* CameraView */,
+				BFF9F105256C57BF00802810 /* ResultsView */,
+				BF27EB1E2522483A00F2811C /* Statistics */,
+				BFAA1FBB25190C8200B68378 /* Model */,
 				BFB357A224E9ADC900E117DD /* Timer */,
 				BF344AC92549BACC00A8BB2D /* Assets.xcassets */,
 				BFB357A124E9ADC900E117DD /* Products */,
@@ -203,65 +211,65 @@
 		BFB357A224E9ADC900E117DD /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				BFB357C024E9AE6600E117DD /* Constants.swift */,
 				BFB357A324E9ADC900E117DD /* AppDelegate.swift */,
 				BFB357A524E9ADC900E117DD /* SceneDelegate.swift */,
-				BF37E4F6253A0A5D00AF4F69 /* CollectionViewCell.swift */,
-				BF34B0B0255EB30A0046489C /* MyPickerView.swift */,
-				BF27EB232527D5B600F2811C /* PopupView.swift */,
-				BFE599DE251A100B00ED5147 /* Views */,
-				BFE599DC251A0FF900ED5147 /* StartViewController.swift */,
-				BFCDE62D252141380032D4C5 /* SetSpeedViewController.swift */,
-				BFAA541F251A359F00BC83DE /* SetLapsViewController.swift */,
-				BFB357A724E9ADC900E117DD /* CameraViewController.swift */,
-				BFCDE62F2521F6ED0032D4C5 /* Results */,
-				BF27EB1E2522483A00F2811C /* Statistics */,
-				BFE599DF251A102B00ED5147 /* ViewModels */,
-				BF40E51025487DA30059B5C5 /* SpeedViewModel.swift */,
-				BFE599E1251A11CB00ED5147 /* StartViewModel.swift */,
-				BFB357BC24E9AE3100E117DD /* ViewModel.swift */,
-				BF1BBA24251E1AEB0028859D /* ResultsViewModel.swift */,
-				BF1BBA2C251E33B20028859D /* StatisticsViewModel.swift */,
-				BFAA1FBB25190C8200B68378 /* Model */,
-				BFE599E0251A104300ED5147 /* Constants */,
-				BFB357C024E9AE6600E117DD /* Constants.swift */,
 				BFB357A924E9ADC900E117DD /* Main.storyboard */,
-				BF1BBA36251FBFEF0028859D /* Sounds */,
-				BF1BBA39251FE51D0028859D /* Fonts */,
 				BFB357B124E9ADCD00E117DD /* LaunchScreen.storyboard */,
 				BFB357B424E9ADCD00E117DD /* Info.plist */,
 				BF344AC62549BA8200A8BB2D /* Timer.xcdatamodeld */,
+				BF1BBA36251FBFEF0028859D /* Sounds */,
+				BF1BBA39251FE51D0028859D /* Fonts */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
 		};
-		BFCDE62F2521F6ED0032D4C5 /* Results */ = {
+		BFF9F100256C570800802810 /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				BFE599DC251A0FF900ED5147 /* StartViewController.swift */,
+				BFE599E1251A11CB00ED5147 /* StartViewModel.swift */,
+			);
+			path = StartView;
+			sourceTree = "<group>";
+		};
+		BFF9F102256C572A00802810 /* SetRaceView */ = {
+			isa = PBXGroup;
+			children = (
+				BFCDE62D252141380032D4C5 /* SetSpeedViewController.swift */,
+				BF40E51025487DA30059B5C5 /* SpeedViewModel.swift */,
+			);
+			path = SetRaceView;
+			sourceTree = "<group>";
+		};
+		BFF9F104256C57A000802810 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				BFB357A724E9ADC900E117DD /* CameraViewController.swift */,
+				BFB357BC24E9AE3100E117DD /* ViewModel.swift */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		BFF9F105256C57BF00802810 /* ResultsView */ = {
 			isa = PBXGroup;
 			children = (
 				BFE599E5251A1F6400ED5147 /* ResultsViewController.swift */,
 				BFCDE6302521F70B0032D4C5 /* ResultsTableViewCell.swift */,
+				BF1BBA24251E1AEB0028859D /* ResultsViewModel.swift */,
 			);
-			path = Results;
+			path = ResultsView;
 			sourceTree = "<group>";
 		};
-		BFE599DE251A100B00ED5147 /* Views */ = {
+		BFF9F108256C584700802810 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BF37E4F6253A0A5D00AF4F69 /* CollectionViewCell.swift */,
+				BF34B0B0255EB30A0046489C /* MyPickerView.swift */,
+				BF27EB232527D5B600F2811C /* PopupView.swift */,
+				BF41D619256588040051639E /* CustomPickerView.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		BFE599DF251A102B00ED5147 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		BFE599E0251A104300ED5147 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,11 +395,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF34B0BE2562A6070046489C /* RaceDetailsViewController.swift in Sources */,
-				BF34B0BB256074CC0046489C /* Result.swift in Sources */,
 				BFB357BF24E9AE3A00E117DD /* Model.swift in Sources */,
 				BFE599E2251A11CB00ED5147 /* StartViewModel.swift in Sources */,
 				BFB357A824E9ADC900E117DD /* CameraViewController.swift in Sources */,
-				BF40E50F25486B2F0059B5C5 /* FavoritesModel.swift in Sources */,
 				BF34B0C22562C3200046489C /* DetailRow.swift in Sources */,
 				BF1BBA2B251E33950028859D /* StatisticsViewController.swift in Sources */,
 				BFCDE6312521F70B0032D4C5 /* ResultsTableViewCell.swift in Sources */,
@@ -400,6 +406,7 @@
 				BF27EB262529226000F2811C /* DateViewController.swift in Sources */,
 				BFB357A424E9ADC900E117DD /* AppDelegate.swift in Sources */,
 				BF34B0B1255EB30A0046489C /* MyPickerView.swift in Sources */,
+				BF10F908256C51A600212FD5 /* FavoritesModel.swift in Sources */,
 				BFB357A624E9ADC900E117DD /* SceneDelegate.swift in Sources */,
 				BF1BBA2D251E33B20028859D /* StatisticsViewModel.swift in Sources */,
 				BF1BBA25251E1AEB0028859D /* ResultsViewModel.swift in Sources */,
@@ -411,9 +418,10 @@
 				BFB357BB24E9AE2100E117DD /* CameraCapture.swift in Sources */,
 				BFCDE62E252141380032D4C5 /* SetSpeedViewController.swift in Sources */,
 				BFB357BD24E9AE3100E117DD /* ViewModel.swift in Sources */,
-				BFAA5420251A359F00BC83DE /* SetLapsViewController.swift in Sources */,
+				BF41D61A256588040051639E /* CustomPickerView.swift in Sources */,
 				BF344AC82549BA8300A8BB2D /* Timer.xcdatamodeld in Sources */,
 				BFAA1FB82518E12300B68378 /* BreakObserver.swift in Sources */,
+				BF41D620256815DE0051639E /* SortViewModel.swift in Sources */,
 				BFB357C124E9AE6600E117DD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

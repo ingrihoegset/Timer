@@ -5,19 +5,23 @@
         <relationship name="collected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeCollector" inverseName="collects" inverseEntity="TimeCollector"/>
     </entity>
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="delayBeforeStart" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="delayBetweenLaps" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lapLength" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="laps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="reactionTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="hasCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Race" inverseName="isOfCategoryType" inverseEntity="Race"/>
     </entity>
     <entity name="Race" representedClassName=".Race" syncable="YES" codeGenerationType="class">
+        <attribute name="averageSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lapLength" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="laps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="isOfCategoryType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="hasCategories" inverseEntity="Category"/>
         <relationship name="owns" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TimeCollector" inverseName="ownedBy" inverseEntity="TimeCollector"/>
@@ -28,8 +32,8 @@
     </entity>
     <elements>
         <element name="BreakTime" positionX="81.875" positionY="27.3359375" width="128" height="73"/>
-        <element name="Category" positionX="-549.48828125" positionY="-183.09765625" width="128" height="163"/>
-        <element name="Race" positionX="-259.15234375" positionY="21.2421875" width="128" height="133"/>
+        <element name="Category" positionX="-549.48828125" positionY="-183.09765625" width="128" height="193"/>
+        <element name="Race" positionX="-259.15234375" positionY="21.2421875" width="128" height="163"/>
         <element name="TimeCollector" positionX="-90.43359375" positionY="22.65625" width="128" height="73"/>
     </elements>
 </model>
